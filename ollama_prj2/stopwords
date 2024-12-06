@@ -1,0 +1,16 @@
+# Carregar stopwords de um arquivo .txt
+with open('stopwords.txt', 'r', encoding='utf-8') as file:
+    stopwords = [linha.strip() for linha in file]
+
+# Texto de exemplo
+texto = "Eu estou aprendendo Python e gosto muito de resolver problemas com código."
+
+# Remover stopwords
+palavras = texto.lower().split()  # Converte para minúsculas e divide em palavras
+resultado = [palavra for palavra in palavras if palavra not in stopwords]
+
+# Reconstruir o texto sem as stopwords
+texto_sem_stopwords = " ".join(resultado)
+
+print("Texto original:", texto)
+print("Texto sem stopwords:", texto_sem_stopwords)
